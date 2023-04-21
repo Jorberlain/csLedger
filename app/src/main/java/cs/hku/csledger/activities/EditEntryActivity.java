@@ -73,22 +73,22 @@ public class EditEntryActivity extends AppCompatActivity {
         });
 
         final AutoCompleteTextView account1Edit = (AutoCompleteTextView) findViewById(R.id.new_account1);
-        final AutoCompleteTextView account2Edit = (AutoCompleteTextView) findViewById(R.id.new_account2);
+        //final AutoCompleteTextView account2Edit = (AutoCompleteTextView) findViewById(R.id.new_account2);
         final EditText valueEdit = (EditText) findViewById(R.id.edit_value);
 
         Account one = dbhelper.getAccount(
                 Integer.parseInt(sharedPreferences.getString("pref_default_account1", "")));
-        Account two = dbhelper.getAccount(
-                Integer.parseInt(sharedPreferences.getString("pref_default_account2", "")));
+        //Account two = dbhelper.getAccount(
+                //Integer.parseInt(sharedPreferences.getString("pref_default_account2", "")));
 
         account1Edit.setText(one.getAliasOrName());
-        account2Edit.setText(two.getAliasOrName());
+        //account2Edit.setText(two.getAliasOrName());
         String[] accounts = dbhelper.getAccountNames();
 
         ArrayAdapter<String> autoCompleteAdapterAccount1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, accounts);
         ArrayAdapter<String> autoCompleteAdapterAccount2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, accounts);
         account1Edit.setAdapter(autoCompleteAdapterAccount1);
-        account2Edit.setAdapter(autoCompleteAdapterAccount2);
+        //account2Edit.setAdapter(autoCompleteAdapterAccount2);
 
         nameEdit.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -101,7 +101,7 @@ public class EditEntryActivity extends AppCompatActivity {
                     valueEdit.setText(entry.getValueString());
                     if (balances.size() > 1) {
                         account1Edit.setText(balances.get(0).getNameOrAlias());
-                        account2Edit.setText(balances.get(1).getNameOrAlias());
+                        //account2Edit.setText(balances.get(1).getNameOrAlias());
                     }
                 }
             }
@@ -125,7 +125,7 @@ public class EditEntryActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.save_item) {
             saveItem();
         } else {
-            System.out.println("unknown menu item...");
+            System.out.println("Unknown menu item...");
             return false;
         }
 
@@ -163,19 +163,19 @@ public class EditEntryActivity extends AppCompatActivity {
         }
 
         EditText account1 = (EditText) this.findViewById(R.id.new_account1);
-        EditText account2 = (EditText) this.findViewById(R.id.new_account2);
+        //EditText account2 = (EditText) this.findViewById(R.id.new_account2);
 
         String accountName1 = account1.getText().toString();
-        String accountName2 = account2.getText().toString();
+        //String accountName2 = account2.getText().toString();
         Account one = dbhelper.getOrCreateAccount(accountName1, "", accountName1);
-        Account two = dbhelper.getOrCreateAccount(accountName2, "", accountName2);
+        //Account two = dbhelper.getOrCreateAccount(accountName2, "", accountName2);
 
         Balance a = new Balance(this, one, value);
-        Balance b = new Balance(this, two, -value);
+        //Balance b = new Balance(this, two, -value);
 
         List<Balance> balances = new ArrayList<>();
         balances.add(a);
-        balances.add(b);
+        //balances.add(b);
 
         LedgerEntry entry = new LedgerEntry(this, date, name, balances, -1);
         dbhelper.addEntry(entry);

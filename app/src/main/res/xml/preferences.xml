@@ -6,7 +6,7 @@
         <EditTextPreference
             android:selectAllOnFocus="true"
             android:key="pref_currency_symbol"
-            android:defaultValue="EUR"
+            android:defaultValue="HKD"
             android:summary="@string/pref_summary_currency"
             android:title="@string/currency" />
 
@@ -28,10 +28,5 @@
             android:key="pref_default_account1"
             android:title="@string/default_account1"
             android:defaultValue="1" />
-
-        <ListPreference
-            android:key="pref_default_account2"
-            android:title="@string/default_account2"
-            android:defaultValue="2" />
     </PreferenceCategory>
 </PreferenceScreen>

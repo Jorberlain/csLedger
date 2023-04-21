@@ -74,8 +74,8 @@ public class LedgerDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_ACCOUNTS);
         db.execSQL(SQL_CREATE_BALANCES);
 
-        createAccount(db, "Dummy 1", "Dummy 1 Account", "Dummy1");
-        createAccount(db, "Dummy 2", "Dummy 2 Account", "Dummy2");
+        createAccount(db, "User_1", "User1 Account", "User1");
+        //createAccount(db, "Dummy 2", "Dummy 2 Account", "Dummy2");
     }
 
     /**

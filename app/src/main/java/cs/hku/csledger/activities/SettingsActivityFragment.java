@@ -25,9 +25,8 @@ public class SettingsActivityFragment extends PreferenceFragment {
 
         List<Account> accounts = dbHelper.getAccounts();
 
-        if (accounts.size() < 2) {
-            accounts.add(dbHelper.getOrCreateAccount("Expenses:Dummy1", "First Dummy Accoount", "Dummy1"));
-            accounts.add(dbHelper.getOrCreateAccount("Expenses:Dummy2", "Second Dummy Account", "Dummy2"));
+        if (accounts.size() < 1) {
+            accounts.add(dbHelper.getOrCreateAccount("Expenses:User1", "First Account", "User1"));
         }
 
         CharSequence[] accountNames = new CharSequence[accounts.size()];
@@ -45,9 +44,9 @@ public class SettingsActivityFragment extends PreferenceFragment {
         defaultAccount1.setEntryValues(accountValues);
 
 
-        ListPreference defaultAccount2 = (ListPreference) findPreference("pref_default_account2");
+        /*ListPreference defaultAccount2 = (ListPreference) findPreference("pref_default_account2");
         defaultAccount2.setDefaultValue("2");
         defaultAccount2.setEntries(accountNames);
-        defaultAccount2.setEntryValues(accountValues);
+        defaultAccount2.setEntryValues(accountValues);*/
     }
 }

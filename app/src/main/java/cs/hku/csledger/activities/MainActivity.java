@@ -125,14 +125,11 @@ public class MainActivity extends AppCompatActivity  implements ShareActionProvi
 
             @Override
             public void onDrawerClosed(View drawerView) {
-                // Code here will be triggered once the drawer closes as we dont want anything to happen so we leave this blank
                 super.onDrawerClosed(drawerView);
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
-                // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
-
                 super.onDrawerOpened(drawerView);
             }
         };
@@ -145,7 +142,6 @@ public class MainActivity extends AppCompatActivity  implements ShareActionProvi
 
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         switch (id) {
             case R.id.menu_item_share:
                 exportAndSend();
@@ -195,12 +191,12 @@ public class MainActivity extends AppCompatActivity  implements ShareActionProvi
 
         DateFormat df = new SimpleDateFormat("yyyy_MM_dd__HH_mm_ss");
 
-        String filename = "export_" + df.format(new Date()) + ".ledger";
+        String filename = "export_" + df.format(new Date()) + ".csledger";
         FileOutputStream outputStream;
 
         File file = new File(getFilesDir(), "exports");
         if (file == null) {
-            Toast toast = Toast.makeText(this, "Cannot open exports dir. No such directory.", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this, "No such directory.", Toast.LENGTH_LONG);
             toast.show();
             return null;
         }
